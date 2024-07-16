@@ -61,7 +61,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        function addToCart(productName, productPrice) {
+        function addToCart(productName, productPrice, productImage = '') {
             const cart = document.getElementById('cart');
             const quantity = 1;
 
@@ -70,7 +70,7 @@
 
             cartItem.innerHTML = `
                 <div class="cart-item-image">
-                    <img src="Peptobismol.JPG" alt="Producto">
+                    ${productImage ? `<img src="${productImage}" alt="Producto">` : '<div class="placeholder-text">Imagen</div>'}
                 </div>
                 <div class="ml-3 flex-grow-1">
                     <h5 class="mb-1" style="font-size: 1rem;">${productName}</h5>
@@ -92,9 +92,9 @@
             window.location.href = 'pago.html';
         });
 
-        addToCart('Peptobismol', '$65.00');
-        addToCart('Producto 2', '$20.00');
-        addToCart('Producto 3', '$30.00');
+        addToCart('Peptobismol', '$65.00', 'Peptobismol.JPG');
+        addToCart('Vick VapoRub', '$80.00', 'VickVaporub.JPG');
+        addToCart('Genoprazol', '$100.00'); 'Genoprazol.JPG');
     </script>
 </body>
 </html>
